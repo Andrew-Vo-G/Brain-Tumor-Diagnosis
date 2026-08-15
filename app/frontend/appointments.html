@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointments | brainAI studio</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary-container": "#c8daff", "surface-variant": "#e1e3e4", "surface-container-lowest": "#ffffff", "on-surface-variant": "#424752", "on-primary": "#ffffff", "on-primary-fixed": "#001b3d", "surface-container-highest": "#e1e3e4", "on-tertiary-fixed-variant": "#793100", "secondary": "#4a5f83", "background": "#f8f9fa", "on-secondary-container": "#475c80", "tertiary-fixed": "#ffdbcb", "secondary-fixed-dim": "#b2c7f0", "primary-fixed-dim": "#a9c7ff", "surface-container-high": "#e7e8e9", "on-error": "#ffffff", "primary": "#00478d", "on-background": "#191c1d", "outline-variant": "#c2c6d4", "tertiary-container": "#9f4300", "surface-tint": "#005db6", "on-secondary-fixed-variant": "#32476a", "on-tertiary-container": "#ffcfb9", "primary-fixed": "#d6e3ff", "tertiary": "#793100", "surface": "#f8f9fa", "on-error-container": "#93000a", "surface-bright": "#f8f9fa", "outline": "#727783", "secondary-container": "#c0d5ff", "surface-dim": "#d9dadb", "error-container": "#ffdad6", "inverse-primary": "#a9c7ff", "tertiary-fixed-dim": "#ffb691", "on-secondary": "#ffffff", "surface-container": "#edeeef", "inverse-on-surface": "#f0f1f2", "primary-container": "#005eb8", "error": "#ba1a1a", "surface-container-low": "#f3f4f5", "on-secondary-fixed": "#021b3c", "on-tertiary": "#ffffff", "on-surface": "#191c1d", "on-primary-fixed-variant": "#00468c", "inverse-surface": "#2e3132", "on-tertiary-fixed": "#341100", "secondary-fixed": "#d6e3ff" }, fontFamily: { "headline": ["Manrope"], "body": ["Inter"], "label": ["Inter"] }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, }, }, }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface">
+
+  <!-- Top Navigation Bar -->
+  <nav class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl shadow-sm border-none">
+    <div class="flex justify-between items-center px-6 py-3 w-full max-w-screen-2xl mx-auto">
+      <div class="flex items-center gap-8">
+        <span class="text-xl font-bold tracking-tighter text-blue-800 font-headline">brainAI Studio</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <p id="topUserName" class="text-sm font-semibold text-slate-700"></p>
+        <p id="topUserRole" class="text-xs text-slate-500 hidden"></p>
+        <button id="logoutBtn"
+          class="px-3 py-1.5 bg-red-500 text-white rounded-lg text-xs font-bold hover:bg-red-600 transition shadow">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex pt-16 min-h-screen">
+    <!-- SideNavBar -->
+    <aside class="hidden lg:flex flex-col h-[calc(100vh-64px)] w-64 bg-slate-50 p-4 gap-2 border-r-0 fixed left-0">
+      <div class="flex items-center gap-3 px-3 py-4 mb-4">
+        <div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center text-on-primary">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+        </div>
+        <div>
+          <h2 class="text-blue-700 font-extrabold text-lg leading-tight">brainAI</h2>
+          <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Clinical Portal</p>
+        </div>
+      </div>
+      <nav class="flex-1 flex flex-col gap-1 sidebar-nav-links">
+        <a class="nav-btn flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+          href="doctor-dashboard.html" data-page="doctor-dashboard">
+          <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard (Dr)
+        </a>
+        <a class="nav-btn flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+          href="patient.html" data-page="patient">
+          <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard (Pt)
+        </a>
+        <a class="nav-btn flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+          href="analysis.html" data-page="analysis">
+          <span class="material-symbols-outlined" data-icon="troubleshoot">troubleshoot</span> Analysis
+        </a>
+        <a class="nav-btn flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+          href="history.html" data-page="history">
+          <span class="material-symbols-outlined" data-icon="folder_shared">history</span> Records
+        </a>
+        <a class="nav-btn flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+          href="appointments.html" data-page="appointments">
+          <span class="material-symbols-outlined" data-icon="event">event</span> Appointments
+        </a>
+        <a class="nav-btn flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+          href="profiles.html" data-page="profiles">
+          <span class="material-symbols-outlined" data-icon="group">group</span> Profiles
+        </a>
+        <a class="nav-btn flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+          href="messages.html" data-page="messages">
+          <span class="material-symbols-outlined" data-icon="chat">chat</span> Messages
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 lg:ml-64 p-8 bg-surface">
+      <div class="max-w-6xl mx-auto space-y-8">
+
+        <header>
+          <h1 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight leading-tight">Appointments</h1>
+          <p class="mt-2 text-on-surface-variant font-body">Manage your appointments with doctors.</p>
+          <p id="appointmentStatus" class="mt-2 text-sm text-slate-500"></p>
+        </header>
+
+        <!-- Next Appointment Card -->
+        <div id="nextAppointmentCard" class="hidden bg-blue-700 text-white rounded-2xl p-6 flex items-center gap-6 shadow-lg">
+          <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">event_available</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-xs font-bold uppercase tracking-widest text-blue-200 mb-1">Next Appointment</p>
+            <p id="nextApptDate" class="font-headline font-bold text-lg"></p>
+            <p class="text-sm text-blue-200">With: <span id="nextApptDoctor" class="font-semibold text-white"></span></p>
+          </div>
+        </div>
+
+        <!-- Booking Section + History -->
+        <div id="bookingWrap" class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+          <!-- Left: Doctor Selection + Booking Form -->
+          <div class="lg:col-span-7 space-y-8">
+            <section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm p-6">
+              <h2 class="text-xl font-headline font-bold mb-4">Choose a Doctor</h2>
+              <div id="doctorList" class="grid grid-cols-1 gap-3"></div>
+            </section>
+
+            <section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm p-6 space-y-4">
+              <h2 class="text-xl font-headline font-bold">Select Date & Time</h2>
+              <div>
+                <label class="text-xs font-bold uppercase text-slate-500">Date</label>
+                <input id="appointmentDate" type="date" class="w-full mt-1 rounded-xl border-slate-300 text-sm p-2" />
+              </div>
+              <div>
+                <label class="text-xs font-bold uppercase text-slate-500 mb-2 block">Time Slot</label>
+                <div class="grid grid-cols-3 gap-2">
+                  <button class="time-slot-btn bg-surface-container-low text-on-surface text-sm py-2 rounded-lg border border-outline-variant/20 transition" data-time="08:00">08:00 AM</button>
+                  <button class="time-slot-btn bg-surface-container-low text-on-surface text-sm py-2 rounded-lg border border-outline-variant/20 transition" data-time="09:00">09:00 AM</button>
+                  <button class="time-slot-btn bg-surface-container-low text-on-surface text-sm py-2 rounded-lg border border-outline-variant/20 transition" data-time="10:00">10:00 AM</button>
+                  <button class="time-slot-btn bg-surface-container-low text-on-surface text-sm py-2 rounded-lg border border-outline-variant/20 transition" data-time="11:00">11:00 AM</button>
+                  <button class="time-slot-btn bg-surface-container-low text-on-surface text-sm py-2 rounded-lg border border-outline-variant/20 transition" data-time="13:00">01:00 PM</button>
+                  <button class="time-slot-btn bg-surface-container-low text-on-surface text-sm py-2 rounded-lg border border-outline-variant/20 transition" data-time="14:00">02:00 PM</button>
+                  <button class="time-slot-btn bg-surface-container-low text-on-surface text-sm py-2 rounded-lg border border-outline-variant/20 transition" data-time="15:00">03:00 PM</button>
+                  <button class="time-slot-btn bg-surface-container-low text-on-surface text-sm py-2 rounded-lg border border-outline-variant/20 transition" data-time="16:00">04:00 PM</button>
+                  <button class="time-slot-btn cursor-not-allowed opacity-40 bg-surface-container text-on-surface-variant text-sm py-2 rounded-lg" data-time="17:00">Full</button>
+                </div>
+              </div>
+              <div>
+                <label class="text-xs font-bold uppercase text-slate-500">Notes (Optional)</label>
+                <textarea id="appointmentNotes" rows="2" class="w-full mt-1 rounded-xl border-slate-300 text-sm p-2" placeholder="Add any notes for the doctor..."></textarea>
+              </div>
+              <button id="bookConfirmBtn"
+                class="w-full py-3 bg-blue-700 text-white font-bold rounded-xl shadow hover:bg-blue-800 transition">
+                Confirm Appointment
+              </button>
+            </section>
+          </div>
+
+          <!-- Right: Appointment History -->
+          <div class="lg:col-span-5">
+            <section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm p-6 h-full">
+              <h2 class="text-xl font-headline font-bold mb-4">Appointment History</h2>
+              <div id="appointmentHistoryList" class="space-y-3 max-h-[600px] overflow-y-auto">
+                <p class="text-sm text-slate-500">Loading...</p>
+              </div>
+            </section>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="md:hidden fixed bottom-0 left-0 w-full bg-slate-50 border-t border-slate-200 z-50 px-6 py-2 flex justify-between items-center">
+    <button onclick="window.location.href='patient.html'" class="flex flex-col items-center gap-1 p-2 text-slate-500">
+      <span class="material-symbols-outlined">dashboard</span>
+      <span class="text-[10px] font-bold">Home</span>
+    </button>
+    <button onclick="window.location.href='appointments.html'" class="flex flex-col items-center gap-1 p-2 text-blue-700">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+      <span class="text-[10px] font-bold">Booking</span>
+    </button>
+    <button onclick="window.location.href='messages.html'" class="flex flex-col items-center gap-1 p-2 text-slate-500">
+      <span class="material-symbols-outlined">chat</span>
+      <span class="text-[10px] font-bold">Messages</span>
+    </button>
+  </div>
+
+  <script src="js/api.js?v=23"></script>
+  <script src="js/pages/common.js?v=5"></script>
+  <script src="js/pages/appointments.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>brainAI Studio</title>
+  <script src="js/api.js?v=23"></script>
+  <script>
+    (async function () {
+      if (!API.getToken()) {
+        window.location.href = 'login.html';
+        return;
+      }
+      try {
+        const me = await API.getMe();
+        window.location.href = API.getHomePage(me.role);
+      } catch (e) {
+        window.location.href = 'login.html';
+      }
+    })();
+  </script>
+</head>
+<body></body>
+</html>

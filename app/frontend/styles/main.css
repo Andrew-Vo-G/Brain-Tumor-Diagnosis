@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary: #1d4ed8;           /* Solid Navy/Blue */
+    --primary-hover: #1e3a8a;
+    --background: #ffffff;        /* Pure White */
+    --surface: #ffffff;
+    --surface-border: #1d4ed8;    /* Pure Blue Border */
+    --text-primary: #1e3a8a;      /* Dark Blue Text */
+    --text-secondary: #2563eb;    /* Lighter Blue Text */
+    --success: #1d4ed8;           /* Map success/danger to blue for strict 2-color request, or keep green/red? Better keep 2 colors */
+    --danger: #ef4444;            /* Keep red for danger just in case, but theme is mostly blue/white */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Minimal Panels */
+.glass-panel, .minimal-panel {
+    background: var(--surface);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(29, 78, 216, 0.08);
+}
+
+.btn {
+    background: var(--primary);
+    color: white;
+    border: 1px solid var(--primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+}
+
+.btn-secondary {
+    background: var(--surface);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    color: var(--primary);
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+}
+
+/* Header/Nav */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5%;
+    background: var(--primary);
+    color: white;
+    border-bottom: 2px solid white;
+    box-shadow: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.navbar .btn-secondary {
+    color: white;
+    border-color: rgba(255,255,255,0.4);
+}
+
+.navbar .btn-secondary:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: white;
+    color: white;
+}
+
+.navbar .badge {
+    background: rgba(255,255,255,0.2) !important;
+    color: white !important;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.w-full { width: 100%; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+
+/* Dashboard layout */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 280px minmax(280px, 340px);
+    gap: 14px;
+    padding: 24px 5%;
+    flex: 1;
+    align-items: start;
+    justify-content: center;
+    max-width: 760px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sidebar {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(29, 78, 216, 0.05);
+}
+
+.main-content {
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: 12px;
+    padding: 12px;
+    min-height: 420px;
+    box-shadow: 0 4px 15px rgba(29, 78, 216, 0.05);
+}
+
+.main-panel-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 10px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--surface-border);
+}
+
+/* Status Cards */
+.result-card {
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--primary);
+    margin-bottom: 12px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result-placeholder {
+    border: 1px dashed var(--surface-border);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-success { background: #dcfce7; color: var(--success); }
+.badge-danger { background: #fee2e2; color: var(--danger); }
+
+/* Upload Area */
+.upload-area {
+    border: 1px dashed var(--primary);
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--surface);
+    color: var(--primary);
+}
+
+.upload-area:hover, .upload-area.dragover {
+    background: var(--primary);
+    color: white;
+}
+
+.upload-icon {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+#preview-image {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-top: 16px;
+    display: none;
+    border: 1px solid var(--surface-border);
+}
+
+.loader {
+    border: 2px solid var(--surface-border);
+    border-top: 2px solid var(--primary);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* List Items */
+.record-list {
+    list-style: none;
+}
+
+.record-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--surface-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.record-item:last-child {
+    border-bottom: none;
+}
+
+.record-item img {
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--surface-border);
+}

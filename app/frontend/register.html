@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>brainAI Studio — Register</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#00478d", "primary-fixed": "#d6e3ff", "on-primary": "#ffffff", "on-primary-fixed": "#001b3d", "surface": "#f8f9fa", "on-surface": "#191c1d", "surface-container-lowest": "#ffffff", "surface-container-low": "#f3f4f5", "surface-container": "#edeeef", "outline-variant": "#c2c6d4", "secondary": "#4a5f83", "error": "#ba1a1a" }, fontFamily: { "headline": ["Manrope"], "body": ["Inter"] } } } }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #f8f9fa 100%); min-height: 100vh; }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+  <div class="w-full max-w-md">
+    <!-- Logo -->
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-700 rounded-2xl mb-4 shadow-lg">
+        <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+      </div>
+      <h1 class="text-3xl font-extrabold text-blue-900 font-headline tracking-tight">brainAI Studio</h1>
+      <p class="text-slate-500 text-sm mt-1">Create your account</p>
+    </div>
+
+    <!-- Card -->
+    <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
+      <h2 class="text-xl font-bold text-slate-800 mb-6">Create Account</h2>
+
+      <form id="registerForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Full Name</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">badge</span>
+            <input id="fullname" type="text"
+              class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              placeholder="Your full name" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Username</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">person</span>
+            <input id="username" type="text" autocomplete="username"
+              class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              placeholder="Choose a username" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Password</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock</span>
+            <input id="password" type="password" autocomplete="new-password"
+              class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              placeholder="Create a password" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Role</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">medical_services</span>
+            <select id="role"
+              class="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white">
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+            </select>
+          </div>
+        </div>
+
+        <p id="registerStatus" class="text-xs font-semibold hidden"></p>
+
+        <button id="registerBtn" type="submit"
+          class="w-full py-3 bg-blue-700 text-white font-bold rounded-xl shadow hover:bg-blue-800 active:scale-95 transition-all mt-2">
+          Create Account
+        </button>
+      </form>
+
+      <div class="mt-6 pt-5 border-t border-slate-100 text-center">
+        <p class="text-sm text-slate-500">Already have an account?
+          <a href="login.html" class="text-blue-700 font-semibold hover:underline">Sign In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js?v=23"></script>
+  <script>
+    (async function () {
+      const form = document.getElementById('registerForm');
+      const status = document.getElementById('registerStatus');
+      const btn = document.getElementById('registerBtn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fullname = document.getElementById('fullname').value.trim();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        const role = document.getElementById('role').value;
+
+        if (!username || !password) {
+          status.textContent = 'Username and password are required.';
+          status.className = 'text-xs font-semibold text-red-600';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Creating account...';
+        status.classList.add('hidden');
+
+        try {
+          await API.register(username, password, fullname, role);
+          status.textContent = 'Account created! Redirecting to login...';
+          status.className = 'text-xs font-semibold text-green-600';
+          setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+        } catch (err) {
+          status.textContent = err.message || 'Registration failed. Please try again.';
+          status.className = 'text-xs font-semibold text-red-600';
+          btn.disabled = false;
+          btn.textContent = 'Create Account';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

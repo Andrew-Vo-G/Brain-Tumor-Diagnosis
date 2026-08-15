@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "demo",
+      "hashed_password": "$pbkdf2-sha256$29000$Sonx/v9/z7mXMqZ0rrXWug$70v9bqsOUorVboPIFqm4qIv81.2eQbaPhn/hnaMdBaE",
+      "full_name": "Demo Patient",
+      "role": "patient",
+      "height": 0,
+      "weight": 0
+    }
+  ],
+  "health_records": []
+}

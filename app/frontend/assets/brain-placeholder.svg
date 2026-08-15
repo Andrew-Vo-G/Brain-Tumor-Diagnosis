@@ -1,0 +1,20 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1A35"/>
+      <stop offset="1" stop-color="#102A54"/>
+    </linearGradient>
+    <radialGradient id="brain" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(480 360) rotate(90) scale(180 220)">
+      <stop stop-color="#E7EEF9" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#AABAD6" stop-opacity="0.25"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="720" fill="url(#bg)"/>
+  <ellipse cx="430" cy="360" rx="130" ry="170" fill="url(#brain)"/>
+  <ellipse cx="530" cy="360" rx="130" ry="170" fill="url(#brain)"/>
+  <line x1="480" y1="190" x2="480" y2="530" stroke="#C6D6F3" stroke-opacity="0.5" stroke-width="3"/>
+  <circle cx="480" cy="360" r="210" stroke="#7EA1D8" stroke-opacity="0.25" stroke-width="2"/>
+  <text x="50%" y="88%" text-anchor="middle" fill="#D7E5FF" fill-opacity="0.85" font-family="Arial, sans-serif" font-size="28">
+    MRI Preview
+  </text>
+</svg>

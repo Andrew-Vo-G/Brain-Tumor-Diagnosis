@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="light" lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>brainAI Studio - Bệnh nhân</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#c8daff",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#424752",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary-fixed-variant": "#793100",
+                        "secondary": "#4a5f83",
+                        "background": "#f8f9fa",
+                        "on-secondary-container": "#475c80",
+                        "tertiary-fixed": "#ffdbcb",
+                        "secondary-fixed-dim": "#b2c7f0",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "surface-container-high": "#e7e8e9",
+                        "on-error": "#ffffff",
+                        "primary": "#00478d",
+                        "on-background": "#191c1d",
+                        "outline-variant": "#c2c6d4",
+                        "tertiary-container": "#9f4300",
+                        "surface-tint": "#005db6",
+                        "on-secondary-fixed-variant": "#32476a",
+                        "on-tertiary-container": "#ffcfb9",
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary": "#793100",
+                        "surface": "#f8f9fa",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f8f9fa",
+                        "outline": "#727783",
+                        "secondary-container": "#c0d5ff",
+                        "surface-dim": "#d9dadb",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#a9c7ff",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeef",
+                        "inverse-on-surface": "#f0f1f2",
+                        "primary-container": "#005eb8",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f3f4f5",
+                        "on-secondary-fixed": "#021b3c",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-primary-fixed-variant": "#00468c",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed": "#341100",
+                        "secondary-fixed": "#d6e3ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+
+    <nav class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl shadow-sm border-none">
+        <div class="flex justify-between items-center px-6 py-3 w-full max-w-screen-2xl mx-auto">
+            <div class="flex items-center gap-8">
+                <span class="text-xl font-bold tracking-tighter text-blue-800 font-headline">brainAI Studio</span>
+                <div class="hidden md:flex gap-6 items-center">
+                    <!-- Removed top navigation links to rely on Sidebar -->
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <p id="topUserName" class="text-sm font-semibold text-slate-700"></p>
+                <p id="topUserRole" class="text-xs text-slate-500 hidden"></p>
+                <button id="logoutBtn"
+                    class="px-3 py-1.5 bg-red-500 text-white rounded-lg text-xs font-bold hover:bg-red-600 transition shadow">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex pt-16 min-h-screen">
+        <!-- SideNavBar -->
+        <aside class="hidden lg:flex flex-col h-[calc(100vh-64px)] w-64 bg-slate-50 p-4 gap-2 border-r-0 fixed left-0">
+            <div class="flex items-center gap-3 px-3 py-4 mb-4">
+                <div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center text-on-primary">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+                </div>
+                <div>
+                    <h2 class="text-blue-700 font-extrabold text-lg leading-tight">brainAI</h2>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest font-semibold">Patient Portal</p>
+                </div>
+            </div>
+            <nav class="flex-1 flex flex-col gap-1">
+                <a class="flex items-center gap-3 px-4 py-2.5 bg-blue-50 text-blue-700 rounded-lg font-['Inter'] text-sm font-medium"
+                    href="patient.html">
+                    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+                </a>
+
+                <a class="flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+                    href="appointments.html">
+                    <span class="material-symbols-outlined" data-icon="event">event</span> Appointments
+                </a>
+                <a class="flex items-center gap-3 px-4 py-2.5 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-all rounded-lg font-['Inter'] text-sm font-medium"
+                    href="messages.html">
+                    <span class="material-symbols-outlined" data-icon="chat">chat</span> Messages
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-64 p-8 bg-surface">
+            <div class="max-w-6xl mx-auto space-y-8">
+                <header>
+                    <h1 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight leading-tight">
+                        Patient Portal</h1>
+                    <p class="mt-2 text-on-surface-variant font-body mb-2">Track your diagnosis results and symptoms
+                        over time.</p>
+                    <p id="patientStatus" class="font-bold text-sm text-primary"></p>
+                </header>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                    <!-- Col 1: Info & Symptoms -->
+                    <div class="space-y-8">
+                        <section
+                            class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm">
+                            <h3 class="text-xl font-headline font-bold mb-4">Log Symptoms</h3>
+                            <p class="text-sm text-slate-500 mb-4">Keep a daily health diary for your doctor to easily
+                                monitor your condition.</p>
+
+                            <div class="space-y-3">
+                                <input id="symptomName" class="w-full rounded-lg border-slate-300 p-2 text-sm"
+                                    placeholder="Symptom (e.g., Headache)" />
+                                <div class="flex items-center gap-2">
+                                    <label class="text-xs font-bold text-slate-500 whitespace-nowrap">Severity:</label>
+                                    <input id="symptomSeverity" type="number" min="1" max="10"
+                                        class="w-full rounded-lg border-slate-300 p-2 text-sm"
+                                        placeholder="Scale 1-10" />
+                                </div>
+                                <input id="symptomNotes" class="w-full rounded-lg border-slate-300 p-2 text-sm"
+                                    placeholder="Additional notes" />
+
+                                <button id="logSymptomBtn"
+                                    class="w-full py-2 bg-secondary text-white font-bold rounded-lg shadow hover:opacity-90 transition mt-2">Log
+                                    Symptom</button>
+                            </div>
+                        </section>
+
+                        <section class="bg-surface-container-low p-6 rounded-2xl">
+                            <h3 class="text-xl font-headline font-bold mb-4">Recent Symptoms</h3>
+                            <div id="symptomList" class="space-y-2 max-h-64 overflow-y-auto">
+                                <p class="text-sm text-slate-500">No symptoms recorded yet.</p>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Col 2: Records & History -->
+                    <div class="space-y-8">
+                        <section class="bg-surface-container-low p-6 rounded-2xl h-full">
+                            <h3 class="text-xl font-headline font-bold mb-6">Your Diagnostic Records (With Images)</h3>
+                            <div id="patientRecords"
+                                class="space-y-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+                                <p class="text-sm text-slate-500">No diagnostic results yet.</p>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+        class="md:hidden fixed bottom-0 left-0 w-full bg-slate-50 border-t border-slate-200 z-50 px-6 py-2 flex justify-between items-center">
+        <button onclick="window.location.href='patient.html'"
+            class="flex flex-col items-center gap-1 p-2 text-blue-700">
+            <span class="material-symbols-outlined" data-icon="dashboard"
+                style="font-variation-settings: 'FILL' 1;">dashboard</span>
+            <span class="text-[10px] font-bold">Home</span>
+        </button>
+        <button onclick="window.location.href='appointments.html'"
+            class="flex flex-col items-center gap-1 p-2 text-slate-500">
+            <span class="material-symbols-outlined" data-icon="event">event</span>
+            <span class="text-[10px] font-bold">Booking</span>
+        </button>
+        <button onclick="window.location.href='history.html'"
+            class="flex flex-col items-center gap-1 p-2 text-slate-500">
+            <span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+            <span class="text-[10px] font-bold">Records</span>
+        </button>
+        <button onclick="window.location.href='messages.html'"
+            class="flex flex-col items-center gap-1 p-2 text-slate-500">
+            <span class="material-symbols-outlined" data-icon="chat">chat</span>
+            <span class="text-[10px] font-bold">Messages</span>
+        </button>
+    </div>
+
+    <script src="js/api.js?v=23"></script>
+    <script src="js/pages/common.js?v=2"></script>
+    <script src="js/pages/patient.js?v=6"></script>
+</body>
+
+</html>
