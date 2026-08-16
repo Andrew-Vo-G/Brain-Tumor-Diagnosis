@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 bd7ef0b91213d93ec948526fb1d7a454107a2fd4 Andrew Vo <andrew.vo@gmail.com> 1786778381 +0700	commit (initial): Initial commit
+bd7ef0b91213d93ec948526fb1d7a454107a2fd4 0000000000000000000000000000000000000000 Andrew Vo <andrew.vo@gmail.com> 1786778386 +0700	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 bd7ef0b91213d93ec948526fb1d7a454107a2fd4 Andrew Vo <andrew.vo@gmail.com> 1786778386 +0700	Branch: renamed refs/heads/master to refs/heads/main
+bd7ef0b91213d93ec948526fb1d7a454107a2fd4 0000000000000000000000000000000000000000 Andrew Vo <andrew.vo@gmail.com> 1786778544 +0700	Branch: renamed refs/heads/main to refs/heads/main
+bd7ef0b91213d93ec948526fb1d7a454107a2fd4 bd7ef0b91213d93ec948526fb1d7a454107a2fd4 Andrew Vo <andrew.vo@gmail.com> 1786778544 +0700	Branch: renamed refs/heads/main to refs/heads/main
+bd7ef0b91213d93ec948526fb1d7a454107a2fd4 becb314661242841c8b72d9cad6f2f95de8d1275 Andrew Vo <andrew.vo@gmail.com> 1786778586 +0700	pull --rebase origin main (start): checkout becb314661242841c8b72d9cad6f2f95de8d1275
+becb314661242841c8b72d9cad6f2f95de8d1275 c4ac0ae20a3fed4d1cbc03d26a4c1e79162d3b0b Andrew Vo <andrew.vo@gmail.com> 1786778589 +0700	pull --rebase origin main (pick): Initial commit
+c4ac0ae20a3fed4d1cbc03d26a4c1e79162d3b0b c4ac0ae20a3fed4d1cbc03d26a4c1e79162d3b0b Andrew Vo <andrew.vo@gmail.com> 1786778589 +0700	pull --rebase origin main (finish): returning to refs/heads/main
+c4ac0ae20a3fed4d1cbc03d26a4c1e79162d3b0b 6238038954d20e99e7cc96f5a266d2ceeadd76ae Andrew Vo <andrew.vo@gmail.com> 1786779759 +0700	commit: Remove large local artifacts from git tracking
+6238038954d20e99e7cc96f5a266d2ceeadd76ae 0d07bd805ec77d0322c8d0a5985ca7e0646292b7 Andrew Vo <andrew.vo@gmail.com> 1786780542 +0700	commit: Ignore local model artifacts
+0000000000000000000000000000000000000000 0d07bd805ec77d0322c8d0a5985ca7e0646292b7 Andrew Vo <andrew.vo@gmail.com> 1786781366 +0700	Branch: renamed refs/heads/clean-main to refs/heads/main
