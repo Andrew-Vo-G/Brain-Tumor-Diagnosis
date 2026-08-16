@@ -4,8 +4,6 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
-models/
-data/
 .env
 .env.*
 .DS_Store
