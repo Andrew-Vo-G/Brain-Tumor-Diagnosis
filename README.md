@@ -257,10 +257,10 @@ streamlit run app.py
         <img src="docs/brain_tumor_yolo_4.png" alt="Model visualization 4" width="260" />
       </td>
       <td align="center">
-        <img src="data/mri_test.jpg" alt="Original MRI" width="260" />
+        <img src="data/m3 (177).jpg" alt="Original MRI" width="260" />
       </td>
       <td align="center">
-        <img src="data/test_inference.jpg" alt="Inference result" width="260" />
+        <img src="data/annotated_m3 (177).jpg" alt="Inference result" width="260" />
       </td>
     </tr>
   </table>
@@ -272,15 +272,15 @@ streamlit run app.py
   <table>
     <tr>
       <td align="center">
-        <img src="data/annotated_mri_test.jpg" alt="Annotated MRI sample" width="260" />
+        <img src="data/annotated_m (194).jpg" alt="Annotated MRI sample" width="260" />
         <br>Annotated MRI input
       </td>
       <td align="center">
-        <img src="data/zoom_mri_test.jpg" alt="Zoomed MRI crop" width="260" />
+        <img src="data/zoom_m (194).jpg" alt="Zoomed MRI crop" width="260" />
         <br>Zoomed ROI
       </td>
       <td align="center">
-        <img src="data/annotated_Tr-me_0100.jpg" alt="Tumor region sample" width="260" />
+        <img src="data/annotated_m (194).jpg" alt="Tumor region sample" width="260" />
         <br>Detected tumor area
       </td>
     </tr>
